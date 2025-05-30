@@ -1,0 +1,37 @@
+<div class="container">
+  <h3>LIST OF MOVIES</h3>
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>IMAGE</th>
+        <th>NAME</th>
+        <th>YEAR</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let eachMovie of allMovies">
+        <td>{{ eachMovie.movieId }}</td>
+        <td>
+          <img [src]="eachMovie.movieImageUrl" width="100px" height="80px" />
+        </td>
+        <td>{{ eachMovie.movieName }}</td>
+        <td>{{ eachMovie.movieYear }}</td>
+        <td><button type="button" class="btn btn-warning">VIEW</button></td>
+        <td><button type="button" class="btn btn-primary">EDIT</button></td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="removeMovie(eachMovie.movieId)"
+          >
+            REMOVE
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,6 @@
+<h4>Display Component</h4>
+<h6>Movie Name is {{ movieName }}</h6>
+<button type="button" (click)="showVillian()">Main Villian Character</button>
+<p>{{ villianName }}</p>
+<button type="button" (click)="showHeroDeath()">Hero Death</button>
+<p *ngIf="displayHeroDeath">{{ heroDeath }}</p>

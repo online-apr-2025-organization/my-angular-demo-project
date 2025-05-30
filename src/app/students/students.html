@@ -1,0 +1,27 @@
+<div class="container">
+  <h3>LIST OF STUDENTS</h3>
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>MARKS</th>
+        <th>PERCENTAGE</th>
+        <th>DOB</th>
+        <th>FEES</th>
+        <th>DISCOUNTED FEES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let eachStudent of allStudents">
+        <td>{{ eachStudent.studId }}</td>
+        <td>{{ eachStudent.studName | uppercase}}</td>
+        <td>{{ eachStudent.studMark }}</td>
+        <td>{{ eachStudent.studMark/100 | percent }}</td>
+        <td>{{ eachStudent.studDOB | date:'short'}}</td>
+        <td>{{ eachStudent.studFee | currency:'INR':'code' }}</td>
+        <td>{{ eachStudent.studFee | discount:5 |currency:'INR':'code'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
