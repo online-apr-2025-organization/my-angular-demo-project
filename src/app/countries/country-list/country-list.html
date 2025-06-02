@@ -1,0 +1,10 @@
+<div class="container bg-warning">
+  <h3>LIST OF COUNTRIES</h3>
+  <ul>
+    <country-item
+      *ngFor="let eachCountry of allCountries"
+      [countryData]="eachCountry"
+      (deleteEventEmitter)="removeCountry($event)"
+    ></country-item>
+  </ul>
+</div>

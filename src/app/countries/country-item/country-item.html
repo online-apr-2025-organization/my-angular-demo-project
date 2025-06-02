@@ -1,0 +1,11 @@
+<li class="m-2">
+  {{ countryData.countryId }} , {{ countryData.countryName }} , {{
+  countryData.countryCurrencyCode }} ,
+  <button
+    type="button"
+    class="btn btn-danger"
+    (click)="deleteCountry(countryData.countryId)"
+  >
+    Remove
+  </button>
+</li>

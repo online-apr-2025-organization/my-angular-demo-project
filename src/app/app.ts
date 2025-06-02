@@ -5,10 +5,11 @@ import { Copy } from "./copy/copy";
 import { Fruits } from "./fruits/fruits";
 import { Students } from "./students/students";
 import { MovieList } from "./movies/movie-list/movie-list";
+import { CountryList } from "./countries/country-list/country-list";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Display, Copy, Fruits, Students, MovieList],
+  imports: [RouterOutlet, Display, Copy, Fruits, Students, MovieList, CountryList],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

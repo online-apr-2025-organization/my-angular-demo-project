@@ -15,8 +15,12 @@
     <tbody>
       <tr *ngFor="let eachStudent of allStudents">
         <td>{{ eachStudent.studId }}</td>
-        <td>{{ eachStudent.studName | uppercase}}</td>
-        <td>{{ eachStudent.studMark }}</td>
+        <td [ngStyle]="eachStudent.studMark>50?{}:{color:'red'}">
+          {{ eachStudent.studName | uppercase}}
+        </td>
+        <td [ngClass]="eachStudent.studMark>50?'':'bg-warning'">
+          {{ eachStudent.studMark }}
+        </td>
         <td>{{ eachStudent.studMark/100 | percent }}</td>
         <td>{{ eachStudent.studDOB | date:'short'}}</td>
         <td>{{ eachStudent.studFee | currency:'INR':'code' }}</td>
