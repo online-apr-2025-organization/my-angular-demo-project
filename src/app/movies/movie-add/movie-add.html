@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card">
-    <form (ngSubmit)="submitAddForm()">
+    <form (ngSubmit)="submitAddForm(temForm)" #temForm="ngForm">
       <div class="card-header bg-success text-light">
         <h3 #head3>ADD MOVIE INFORMATION</h3>
       </div>
@@ -13,9 +13,18 @@
             name="movName"
             class="form-control"
             [(ngModel)]="newMovie.movieName"
+            required
+            minlength="2"
+            maxlength="20"
             #temMovieName="ngModel"
             (change)="changeMovieName(temMovieName)"
           />
+          <div
+            *ngIf="temMovieName.invalid && temMovieName.touched"
+            class="text-danger small"
+          >
+            Movie Name is Required!
+          </div>
         </div>
         <div class="form-control-group">
           <label for="mDescription" class="form-label"
@@ -37,7 +46,15 @@
             name="movYear"
             class="form-control"
             [(ngModel)]="newMovie.movieYear"
+            required
+            #temMovieYear="ngModel"
           />
+        </div>
+        <div
+          class="text-danger small"
+          *ngIf="temMovieYear.invalid && temMovieYear.touched"
+        >
+          Movie Release year is required!
         </div>
         <div class="form-control-group">
           <label for="mImage" class="form-label">Movie Image Url:</label>
@@ -51,7 +68,13 @@
         </div>
       </div>
       <div class="card-footer bg-success">
-        <button type="submit" class="btn btn-light text-success">ADD</button>
+        <button
+          type="submit"
+          class="btn btn-light text-success"
+          [disabled]="temForm.invalid"
+        >
+          ADD
+        </button>
         <button type="reset" class="btn btn-light text-success mx-3">
           CLEAR
         </button>
