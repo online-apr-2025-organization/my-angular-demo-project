@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="card">
+    <form (ngSubmit)="submitAddForm()">
+      <div class="card-header bg-success text-light">
+        <h3 #head3>ADD MOVIE INFORMATION</h3>
+      </div>
+      <div class="card-body">
+        <div class="form-control-group">
+          <label for="mName" class="form-label">Movie Name:</label>
+          <input
+            type="text"
+            id="mName"
+            name="movName"
+            class="form-control"
+            [(ngModel)]="newMovie.movieName"
+            #temMovieName="ngModel"
+            (change)="changeMovieName(temMovieName)"
+          />
+        </div>
+        <div class="form-control-group">
+          <label for="mDescription" class="form-label"
+            >Movie Description:</label
+          >
+          <input
+            type="text"
+            id="mDescription"
+            name="movDescription"
+            class="form-control"
+            [(ngModel)]="newMovie.movieDescription"
+          />
+        </div>
+        <div class="form-control-group">
+          <label for="mYear" class="form-label">Movie Release Year:</label>
+          <input
+            type="text"
+            id="mYear"
+            name="movYear"
+            class="form-control"
+            [(ngModel)]="newMovie.movieYear"
+          />
+        </div>
+        <div class="form-control-group">
+          <label for="mImage" class="form-label">Movie Image Url:</label>
+          <input
+            type="text"
+            id="mImage"
+            name="movImage"
+            class="form-control"
+            [(ngModel)]="newMovie.movieImageUrl"
+          />
+        </div>
+      </div>
+      <div class="card-footer bg-success">
+        <button type="submit" class="btn btn-light text-success">ADD</button>
+        <button type="reset" class="btn btn-light text-success mx-3">
+          CLEAR
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

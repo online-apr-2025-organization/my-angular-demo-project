@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Movie } from '../model/movie.model';
 
 @Injectable({
   providedIn: 'root',
@@ -36,5 +37,11 @@ export class MoviesService {
         break;
       }
     }
+  }
+
+  addMovie(nMovie: Movie) {
+    let newMovieId = this.allMovies[this.allMovies.length - 1].movieId + 1;
+    nMovie.movieId = newMovieId;
+    this.allMovies.push(nMovie);
   }
 }

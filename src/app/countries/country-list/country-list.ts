@@ -1,4 +1,14 @@
-import { Component } from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { CountryService } from '../services/country-service';
 import { CountryItem } from '../country-item/country-item';
 import { CommonModule } from '@angular/common';
@@ -9,14 +19,50 @@ import { CommonModule } from '@angular/common';
   templateUrl: './country-list.html',
   styleUrl: './country-list.css',
 })
-export class CountryList {
+export class CountryList
+  implements
+    OnInit,
+    OnChanges,
+    OnDestroy,
+    AfterContentChecked,
+    AfterContentInit,
+    AfterViewInit,
+    AfterViewChecked
+{
   allCountries: any;
-  constructor(private countryService: CountryService) {}
+  constructor(private countryService: CountryService) {
+    console.log('parent constructor called...');
+  }
 
-  ngOnInit() {
-    this.allCountries = this.countryService.getAllCountries();
+  ngOnDestroy(): void {
+    console.log('parent ngOnDestroy() called...');
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('parent ngAfterViewChecked() called...');
+  }
+
+  ngAfterViewInit(): void {
+    console.log('parent ngAfterViewInit() called...');
+  }
+
+  ngAfterContentChecked(): void {
+    console.log('parent ngAfterContentChecked() called...');
   }
   
+  ngAfterContentInit(): void {
+    console.log('parent ngAfterContentInit() called...');
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('parent ngOnChanges() called...');
+  }
+
+  ngOnInit() {
+    console.log('parent ngOnInit() called...');
+    this.allCountries = this.countryService.getAllCountries();
+  }
+
   removeCountry(countryId: any) {
     this.countryService.deleteCountry(countryId);
   }

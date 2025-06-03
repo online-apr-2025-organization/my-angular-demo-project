@@ -6,10 +6,11 @@ import { Fruits } from "./fruits/fruits";
 import { Students } from "./students/students";
 import { MovieList } from "./movies/movie-list/movie-list";
 import { CountryList } from "./countries/country-list/country-list";
+import { MovieAdd } from "./movies/movie-add/movie-add";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Display, Copy, Fruits, Students, MovieList, CountryList],
+  imports: [RouterOutlet, Display, Copy, Fruits, Students, MovieList, CountryList, MovieAdd],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
