@@ -7,10 +7,11 @@ import { Students } from "./students/students";
 import { MovieList } from "./movies/movie-list/movie-list";
 import { CountryList } from "./countries/country-list/country-list";
 import { MovieAdd } from "./movies/movie-add/movie-add";
+import { MovieUpdate } from "./movies/movie-update/movie-update";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Display, Copy, Fruits, Students, MovieList, CountryList, MovieAdd],
+  imports: [RouterOutlet, Display, Copy, Fruits, Students, MovieList, CountryList, MovieAdd, MovieUpdate],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

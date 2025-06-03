@@ -1,1 +1,56 @@
-<p>movie-update works!</p>
+<div class="container">
+  <div class="card">
+    <form [formGroup]="myReactiveForm" (ngSubmit)="myFormSubmit()">
+      <div class="card-header bg-primary text-light">
+        <h3>UPDATE MOVIE INFORMATION</h3>
+      </div>
+      <div class="card-body">
+        <div class="form-control-group">
+          <label for="mName" class="form-label">Movie Name:</label>
+          <input
+            type="text"
+            id="mName"
+            name="movName"
+            class="form-control"
+            formControlName="movieName"
+          />
+        </div>
+        <div class="form-control-group">
+          <label for="mDescription" class="form-label"
+            >Movie Description:</label
+          >
+          <input
+            type="text"
+            id="mDescription"
+            class="form-control"
+            formControlName="movieDescription"
+          />
+        </div>
+        <div class="form-control-group">
+          <label for="mYear" class="form-label">Movie Release Year:</label>
+          <input
+            type="text"
+            id="mYear"
+            class="form-control"
+            formControlName="movieYear"
+          />
+        </div>
+        <div class="form-control-group">
+          <label for="mImage" class="form-label">Movie Image Url:</label>
+          <input
+            type="text"
+            id="mImage"
+            class="form-control"
+            formControlName="movieImageUrl"
+          />
+        </div>
+      </div>
+      <div class="card-footer bg-primary">
+        <button type="submit" class="btn btn-light text-primary">EDIT</button>
+        <button type="reset" class="btn btn-light text-primary mx-3">
+          CLEAR
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

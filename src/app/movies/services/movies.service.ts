@@ -30,6 +30,17 @@ export class MoviesService {
     return this.allMovies;
   }
 
+  getAMovie(movieId: number) {
+    let fetchedMovie = null;
+    for (let i = 0; i < this.allMovies.length; i++) {
+      if (this.allMovies[i].movieId == movieId) {
+        fetchedMovie = this.allMovies[i];
+        break;
+      }
+    }
+    return fetchedMovie;
+  }
+
   deleteMovie(movieId: number) {
     for (let i = 0; i < this.allMovies.length; i++) {
       if (this.allMovies[i].movieId == movieId) {
