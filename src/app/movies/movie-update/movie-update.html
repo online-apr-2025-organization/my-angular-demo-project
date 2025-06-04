@@ -6,7 +6,7 @@
       </div>
       <div class="card-body">
         <div class="form-control-group">
-          <label for="mName" class="form-label">Movie Name:</label>
+          <label for="mName" class="form-label">Movie Name: *</label>
           <input
             type="text"
             id="mName"
@@ -14,6 +14,17 @@
             class="form-control"
             formControlName="movieName"
           />
+          <div
+            class="text-danger small"
+            *ngIf="myReactiveForm.get('movieName').invalid && myReactiveForm.get('movieName').dirty"
+          >
+            <div *ngIf="myReactiveForm.get('movieName').errors['required']">
+              Movie Name is required!
+            </div>
+            <div *ngIf="myReactiveForm.get('movieName').errors['minlength']">
+              Movie Name should be alteast 2 characters!
+            </div>
+          </div>
         </div>
         <div class="form-control-group">
           <label for="mDescription" class="form-label"
@@ -27,13 +38,19 @@
           />
         </div>
         <div class="form-control-group">
-          <label for="mYear" class="form-label">Movie Release Year:</label>
+          <label for="mYear" class="form-label">Movie Release Year: *</label>
           <input
             type="text"
             id="mYear"
             class="form-control"
             formControlName="movieYear"
           />
+          <div
+            class="text-danger small"
+            *ngIf="myReactiveForm.get('movieYear').invalid && myReactiveForm.get('movieYear').dirty"
+          >
+            Movie Release year is required!
+          </div>
         </div>
         <div class="form-control-group">
           <label for="mImage" class="form-label">Movie Image Url:</label>
