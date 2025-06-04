@@ -21,7 +21,15 @@
         <td>{{ eachMovie.movieName }}</td>
         <td>{{ eachMovie.movieYear }}</td>
         <td><button type="button" class="btn btn-warning">VIEW</button></td>
-        <td><button type="button" class="btn btn-primary">EDIT</button></td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="updateMovie(eachMovie.movieId)"
+          >
+            EDIT
+          </button>
+        </td>
         <td>
           <button
             type="button"

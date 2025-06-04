@@ -8,6 +8,7 @@ import {
 import { Movie } from '../model/movie.model';
 import { MoviesService } from '../services/movies.service';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'movie-update',
@@ -19,10 +20,16 @@ export class MovieUpdate {
   fetchedMovie: any;
   myReactiveForm: any;
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(
+    private moviesService: MoviesService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.fetchedMovie = this.moviesService.getAMovie(3002);
+    // here we have to extract the route parameter mid
+    // for extracting we need ActivatedRoute
+    let movId: any = this.activatedRoute.snapshot.paramMap.get('mid');
+    this.fetchedMovie = this.moviesService.getAMovie(+movId);
     // for reactive forms we create the FormControl objects here
     this.myReactiveForm = new FormGroup({
       movieId: new FormControl(this.fetchedMovie.movieId),
