@@ -9,6 +9,7 @@ import { CountryList } from './countries/country-list/country-list';
 import { MovieAdd } from './movies/movie-add/movie-add';
 import { MovieUpdate } from './movies/movie-update/movie-update';
 import { Header } from './header/header';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',

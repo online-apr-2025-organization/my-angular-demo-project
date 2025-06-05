@@ -1,0 +1,8 @@
+<div class="container my-5">
+  <h3>List of all Posts</h3>
+  <ul class="list-group">
+    <li *ngFor="let eachPost of allPosts" class="list-group-item">
+      {{ eachPost.userId }}: {{ eachPost.title }}
+    </li>
+  </ul>
+</div>

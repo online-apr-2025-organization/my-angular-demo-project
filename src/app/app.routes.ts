@@ -8,8 +8,11 @@ import { CountryList } from './countries/country-list/country-list';
 import { MovieAdd } from './movies/movie-add/movie-add';
 import { MovieHeader } from './movies/movie-header/movie-header';
 import { MovieUpdate } from './movies/movie-update/movie-update';
+import { PostList } from './posts/post-list/post-list';
+import { NotFound } from './not-found/not-found';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'student', pathMatch: 'full' },
   { path: 'display', component: Display },
   { path: 'fruit', component: Fruits },
   { path: 'copy', component: Copy },
@@ -24,4 +27,6 @@ export const routes: Routes = [
       { path: 'movie-update/:mid', component: MovieUpdate },
     ],
   },
+  { path: 'post', component: PostList },
+  { path: '**', component: NotFound },
 ];
