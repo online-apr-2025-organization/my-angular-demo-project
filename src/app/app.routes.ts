@@ -10,6 +10,14 @@ import { MovieHeader } from './movies/movie-header/movie-header';
 import { MovieUpdate } from './movies/movie-update/movie-update';
 import { PostList } from './posts/post-list/post-list';
 import { NotFound } from './not-found/not-found';
+import { Header } from './pms/header/header';
+import { OrderHeader } from './pms/orders/order-header/order-header';
+import { ProductHeader } from './pms/products/product-header/product-header';
+import { OrderList } from './pms/orders/order-list/order-list';
+import { OrderAdd } from './pms/orders/order-add/order-add';
+import { ProductList } from './pms/products/product-list/product-list';
+import { ProductAdd } from './pms/products/product-add/product-add';
+import { OrderView } from './pms/orders/order-view/order-view';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'student', pathMatch: 'full' },
@@ -28,5 +36,28 @@ export const routes: Routes = [
     ],
   },
   { path: 'post', component: PostList },
+  {
+    path: 'pms-header',
+    component: Header,
+    children: [
+      {
+        path: 'order-header',
+        component: OrderHeader,
+        children: [
+          { path: 'order-list', component: OrderList },
+          { path: 'order-add', component: OrderAdd },
+          { path: 'order-view/:orderId', component: OrderView },
+        ],
+      },
+      {
+        path: 'product-header',
+        component: ProductHeader,
+        children: [
+          { path: 'product-list', component: ProductList },
+          { path: 'product-add', component: ProductAdd },
+        ],
+      },
+    ],
+  },
   { path: '**', component: NotFound },
 ];

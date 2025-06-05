@@ -1,1 +1,27 @@
-<p>order-list works!</p>
+<div class="container">
+  <h3>LIST OF ORDERS</h3>
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>DATE</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let eachOrder of allOrders">
+        <td>{{ eachOrder.orderId }}</td>
+        <td>{{ eachOrder.orderDate | date:'mediumDate'}}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-warning"
+            (click)="viewOrder(eachOrder.orderId)"
+          >
+            VIEW ORDER
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

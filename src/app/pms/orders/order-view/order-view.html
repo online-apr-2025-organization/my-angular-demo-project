@@ -1,0 +1,41 @@
+<div class="container my-5 center">
+  <div class="card">
+    <div class="card-header bg-warning text-light"><h3>Order Details</h3></div>
+    <div class="card-body">
+      <div class="d-flex justify-content-between bg-secondary mb-3">
+        <div class="p-2 bg-info">ORDER ID : {{ fetchedOrder.orderId }}</div>
+        <div class="p-2 bg-info">
+          ORDER DATE : {{ fetchedOrder.orderDate | date:'mediumDate' }}
+        </div>
+      </div>
+      <h5>LIST OF PRODUCTS</h5>
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>CATEGORY</th>
+            <th>COST</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let eachProduct of fetchedOrder.allProducts">
+            <td>{{ eachProduct.productId }}</td>
+            <td>{{ eachProduct.productName }}</td>
+            <td>{{ eachProduct.productCategory }}</td>
+            <td>{{ eachProduct.productCost }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer bg-warning">
+      <button
+        type="button"
+        class="btn btn-light text-warning"
+        (click)="backToOrderList()"
+      >
+        BACK
+      </button>
+    </div>
+  </div>
+</div>
