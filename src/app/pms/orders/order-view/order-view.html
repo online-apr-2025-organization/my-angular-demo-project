@@ -13,6 +13,7 @@
         <thead class="table-dark">
           <tr>
             <th>ID</th>
+            <th>IMAGE</th>
             <th>NAME</th>
             <th>CATEGORY</th>
             <th>COST</th>
@@ -21,6 +22,13 @@
         <tbody>
           <tr *ngFor="let eachProduct of fetchedOrder.allProducts">
             <td>{{ eachProduct.productId }}</td>
+            <td>
+              <img
+                [src]="eachProduct.productImageUrl"
+                height="50px"
+                width="80px"
+              />
+            </td>
             <td>{{ eachProduct.productName }}</td>
             <td>{{ eachProduct.productCategory }}</td>
             <td>{{ eachProduct.productCost }}</td>

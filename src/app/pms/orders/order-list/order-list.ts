@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrl: './order-list.css',
 })
 export class OrderList {
+  errorMessage: string = '';
   allOrders: Order[] = [];
 
   constructor(
@@ -20,13 +21,19 @@ export class OrderList {
   ) {}
 
   ngOnInit() {
+    this.errorMessage = '';
     this.orderService.getAllOrders().subscribe({
       next: (response) => {
         console.log(response);
         this.allOrders = response;
         this.changeRef.detectChanges(); // this will manually trigger the change detection
       },
-      error: (err) => console.log(err),
+      error: (err) => {
+        console.log(err);
+        this.errorMessage =
+          'OOPS! Something went wrong! Please try again later!';
+        this.changeRef.detectChanges();
+      },
     });
   }
 
