@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <h6 class="text-danger">{{ errorMessage }}</h6>
+  <div class="card">
+    <form (ngSubmit)="submitUser()">
+      <div class="card-header bg-warning text-light">
+        <h3 #head3>LOGIN</h3>
+      </div>
+      <div class="card-body">
+        <div class="form-control-group">
+          <label for="uName" class="form-label">User Name:</label>
+          <input
+            type="text"
+            id="uName"
+            name="userName"
+            class="form-control"
+            [(ngModel)]="userInfo.userName"
+          />
+        </div>
+        <div class="form-control-group">
+          <label for="uPassword" class="form-label">Password:</label>
+          <input
+            type="password"
+            id="uPassword"
+            name="userPassword"
+            class="form-control"
+            [(ngModel)]="userInfo.userPassword"
+          />
+        </div>
+      </div>
+      <div class="card-footer bg-warning">
+        <button type="submit" class="btn btn-light text-warning">LOGIN</button>
+        <button type="reset" class="btn btn-light text-warning mx-3">
+          CLEAR
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,17 +1,27 @@
 <nav class="navbar navbar-expand-sm bg-danger navbar-dark">
   <div class="container-fluid">
     <ul class="navbar-nav">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.isLoggedIn">
         <a class="nav-link" routerLink="order-header" routerLinkActive="bg-dark"
           >ORDERS ||
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.isLoggedIn">
         <a
           class="nav-link"
           routerLink="product-header"
           routerLinkActive="bg-dark"
-          >PRODUCTS
+          >PRODUCTS ||
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="!authService.isLoggedIn">
+        <a class="nav-link" routerLink="login" routerLinkActive="bg-dark"
+          >LOGIN ||
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isLoggedIn">
+        <a class="nav-link" routerLink="logout" routerLinkActive="bg-dark"
+          >LOGOUT
         </a>
       </li>
     </ul>

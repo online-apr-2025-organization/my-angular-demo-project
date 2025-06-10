@@ -18,6 +18,8 @@ import { OrderAdd } from './pms/orders/order-add/order-add';
 import { ProductList } from './pms/products/product-list/product-list';
 import { ProductAdd } from './pms/products/product-add/product-add';
 import { OrderView } from './pms/orders/order-view/order-view';
+import { Login } from './pms/user/login/login';
+import { Logout } from './pms/user/logout/logout';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'student', pathMatch: 'full' },
@@ -57,6 +59,8 @@ export const routes: Routes = [
           { path: 'product-add', component: ProductAdd },
         ],
       },
+      { path: 'login', component: Login },
+      { path: 'logout', component: Logout },
     ],
   },
   { path: '**', component: NotFound },
