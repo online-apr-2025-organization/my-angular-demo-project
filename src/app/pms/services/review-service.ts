@@ -7,8 +7,8 @@ import { Review } from '../model/review.model';
   providedIn: 'root',
 })
 export class ReviewService {
-  baseUrl: string = 'http://localhost:1212/api/reviews';
-
+  // baseUrl: string = 'http://localhost:1212/api/reviews';
+  baseUrl: string = 'http://localhost:5555/api/reviews';
   constructor(private httpClient: HttpClient) {}
 
   getAllReviews(): Observable<Review[]> {
